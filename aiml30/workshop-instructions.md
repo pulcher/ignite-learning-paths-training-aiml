@@ -45,17 +45,22 @@ Select the **Deploy to Azure button** above to create the environment needed for
 * Select the checkbox to agree to the terms and conditions
 * Click Purchase
 
-Once complete - select the Azure Machine Learning service icon
-
-Select the upgrade button at the top of the screen
-
-then launch the Azure Machine Learning Studio
+Once complete
+* Select the Azure Machine Learning service icon
+* Select the upgrade button at the top of the screen
+* Then launch the Azure Machine Learning Studio
 
 ## Create Additional Resources Needed
 Once you have created the base Azure Machine Learning Service we need to add additional compute resources.
 
 ### Create Compute Targets
-1. Create Machine Learning Compute
+1. Create Notebook VM
+    * Click on the nav "Compute"
+    * Click "New"
+    * Enter a name for your notebook VM
+    * Click Create
+![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateNotebookVM.gif)
+2. Create Training Compute
     * Click on the nav "Compute"
     * Select 'Training Clusters'
     * Click "New"
@@ -66,7 +71,7 @@ Once you have created the base Azure Machine Learning Service we need to add add
     * Enter the min and max nodes (recommend min of 0 and max of 5)
     * Click "Create"
     ![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateMlCompute.gif)
-2. Create Kubernetes Compute
+3. Create Kubernetes Compute
     * Click on the nav "Compute"
     * Click "New"
     * Enter a name for the resource
@@ -83,7 +88,22 @@ Once you have created the base Azure Machine Learning Service we need to add add
 * Click `Create from local`
 * Fill out the form and upload the dataset
 
-### 2. Start Building the  Model
+### 2. Data Preparation Stages
+
+1. Navigate to your notebook VM in the Compute tab
+2. Select the `Jupyter` option. (This will not display until the VM is in a `running` state.)
+3. Click the terminal from the home page of Jupyter lab
+4. Clone the repo from the terminal in Jupyter lab
+    * `git clone https://github.com/microsoft/ignite-learning-paths-training-aiml.git`
+5. Also in the terminal `pip install holidays`
+6. Open the `ignite-learning-paths-training-aiml` cloned folder and navigate to the `ignite-ailml30-get-prediction.ipynb` file and click to open it.
+    * The full path should be something like this: `ignite-learning-paths-training-aiml\aiml30\Python\ignite-ailml30-get-prediction.ipynb`
+7. Upload the dataset you downloaded from the repository 'ForecastingData.csv' into the jupyter lab environment
+8. Update the path to the csv file
+9. Run and review all data processing cells until you reach 'Create function to get prediction from API' - we will revisit this notebook again later in the workshop
+
+
+### 3. Start Building the  Model
 
 * Click `Designer` from the left nav
 * Click plus sign to create a new Pipeline
@@ -137,17 +157,13 @@ Once you have created the base Azure Machine Learning Service we need to add add
 * Click `Test` and to see how it performs on a scored data item.
 * Click `Consume` and to see the sample code provided for integrating the web service.
 
-### 6. Optional: Additionally Test API with Python in Notebook VMs using Jupyter Notebooks
-1. Navigate to `Compute` and create a new Notebook VM
-![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateNotebookVM.gif)
-2. Once created under column `Application URI`click the `Jupyter Lab` option. (This will not display until the VM is in a `running` state.)
-3. Click the terminal from the home page of Jupyter lab
-4. Clone the repo from the terminal in Jupyter lab
-    * `git clone https://github.com/microsoft/ignite-learning-paths-training-aiml.git`
-5. Open the `ignite-learning-paths-training-aiml` cloned folder and navigate to the `ignite-ailml30-get-prediction.ipynb` file and click to open it.
-    * The full path should be something like this: `ignite-learning-paths-training-aiml\aiml30\Python\ignite-ailml30-get-prediction.ipynb`
-6. Update the path to the csv file, the endpoint and the key.
-7. `SHIFT + Enter` or click play on each cell from the top menu to run each cell
+### 5. Test API with Python in Notebook VMs using Jupyter Notebooks
+
+1. Navigate to Jupyter Lab in your Notebook VM
+2. Open the 'ignite-aiml30-get-prediction.ipynb' file
+3. Rerun file up until the 'Create function to get prediction from API' cell
+4. Update the endpoint URL and the key within the prediction API code cell
+7. Run the rest of the code to see your predictions
 
 
 ## Resources and Continue Learning
