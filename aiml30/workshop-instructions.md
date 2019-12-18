@@ -45,14 +45,14 @@ Select the **Deploy to Azure button** above to create the environment needed for
 * Select the checkbox to agree to the terms and conditions
 * Click Purchase
 
-![Deploy to Azure button setup information](/images/deploy-to-azure.PNG)
+![Deploy to Azure button setup information](images/deploy-to-azure.PNG)
 
 Once complete
 * Browse to the Azure Resource group and select the Azure Machine Learning service icon
 * Select the Upgrade button at the top of the screen to upgrade to enterprise edition
 * Then launch the Azure Machine Learning Studio
 
-![Upgrade to Enterprise and Browse to Studio](/images/upgrade-to-enterprise.PNG)
+![Upgrade to Enterprise and Browse to Studio](images/upgrade-to-enterprise.PNG)
 
 ## Create Additional Resources Needed
 Once you have created the base Azure Machine Learning Service and entered the Studio window (http://ml.azure.com) we need to add additional compute resources.
@@ -93,7 +93,7 @@ Once you have created the base Azure Machine Learning Service and entered the St
 * Browse for the dataset downloaded
 * Fill out the form and upload the dataset
 
-![Upload new dataset](/images/create-dataset.PNG)
+![Upload new dataset](images/create-dataset.PNG)
 
 ### 2. Data Preparation Stages
 
@@ -101,7 +101,7 @@ Once you have created the base Azure Machine Learning Service and entered the St
 2. Select the `Jupyter Lab` option. (This will not display until the VM is in a `running` state.)
 3. Click the terminal from the home page of Jupyter Lab
 
-![Jupyter Lab terminal View](/images/jupyter-lab-terminal.PNG)
+![Jupyter Lab terminal View](images/jupyter-lab-terminal.PNG)
 
 4. Clone the repo from the terminal in Jupyter Lab
     * `git clone https://github.com/microsoft/ignite-learning-paths-training-aiml.git`
@@ -112,31 +112,59 @@ Once you have created the base Azure Machine Learning Service and entered the St
 8. Update the path to the csv file
 9. Run and review all data processing cells until you reach 'Create function to get prediction from API' - we will revisit this notebook again later in the workshop
 
-![Python Notebook with Data Processing code](/images/jupyter-lab-ipynb.PNG)
+![Python Notebook with Data Processing code](images/jupyter-lab-ipynb.PNG)
 
 ### 3. Start Building the  Model
 
+Now we have enriched and preprocessed our forecasting dataset we can start to build our forecasting model. Azure Machine Learning designer is a grad and drop interface where you can quickly build and expeirment with machine learning models.
+
+Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.com/)
+
 * Click `Designer` from the left nav
-* Click plus sign to create a new Pipeline
+* Click plus sign to create a new experiment
+
+![Designer Home Page](images/ml-deisgner-home.PNG)
+
+* On the `Settings` tab, `Select compute target` and choose the training compute you created
+* Also in the `Settings` tab edit the experiment name and description
+
+![Edit settings for Title, Description and compute target](images/designer-settings.PNG)
+
 * Expand `Datasets` and `My Datasets`
 * Drag and drop the uploaded dataset onto the experiment workspace
-* Drag the `Select Columns in Dataset` onto the workspace
+
+![Add a module to the workspace]/images/add-module.PNG)
+
+* Drag the `Select Columns in Dataset` onto the workspace (In the `Data Transformation` Category)
+    * Connect the output of the dataset to the input circle of the `Select Columns in Dataset` module
     * Click `Edit columns` from the parameters menu on the right side.
     * Click `By Name`
     * Click `Add All`
     * Click `Minus` icon on the `Time` column to exclude it
 * Drag the `Split Data` onto the workspace
-    * Edit the parameters to split the data 70/30. 
+    * Edit the parameters to split the data 70/30 by setting the `Fraction of rows in the first output dataset` to 0.7
     * This is not a rule and can change base on different model needs.
 * Drag the `Train Model` onto the workspace
+    * Connect the 1st output port of the `Split Data` module to the 2nd input port of the `Train Model` module
     * Select the label column name `Values` from the parameters on the right
 * Drag the `Boosted Decision Tree Regression` onto the workspace
 * Drag the `Score Model` onto the workspace
 * Drag the `Evaluate` onto the workspace
-* Connect the `Split Data` module to `Train Model` for the training data and `Score Model` for scoring the predicted results with unseen data.
-* Connect `Train Model` to the training algorithm `Boosted Decision Tree Regression` module.
-* Connect `Score Model` with the `Evaluate` module.
-* Click the `Run` button in the bottom nav and select compute. 
+* Connect:
+    * `Boosted Decision Tree` -> 1st port `Train Model`
+    * `Train Model` output -> 1st port `Score Model`
+    * `Split Data` 2nd port -> `Score Model` 2nd port
+    * `Score Model` -> `Evaluate Model`
+
+![Experiment wiring diagram](images/initial-exp-wiring.PNG)
+
+* Click the `Run` button at the top right of the screen
+* Select `Experiment`, click `+New Experiment`, enter experiment name 
+* Select `Run`
+
+![Run Setup](images/run-setup.PNG)
+
+*This will take around XX mins to run ...*
 
 * Rename the created column `Scored Labels` to `Forecast`
     * Drag the `Edit Metadata` onto the workspace
