@@ -41,17 +41,21 @@ Select the **Deploy to Azure button** above to create the environment needed for
 * Create a new resource group and name it aiml-workshop2
 * Select your nearest location, e.g. WestEurope
 * Create an Azure Machine Learning workshop name, e.g. aiml-workshop2
-* Select your nearest location
+* Select your nearest location (make sure its the same as the resource group location for best practice)
 * Select the checkbox to agree to the terms and conditions
 * Click Purchase
 
+![Deploy to Azure button setup information](/images/deploy-to-azure.PNG)
+
 Once complete
-* Select the Azure Machine Learning service icon
-* Select the upgrade button at the top of the screen
+* Browse to the Azure Resource group and select the Azure Machine Learning service icon
+* Select the Upgrade button at the top of the screen to upgrade to enterprise edition
 * Then launch the Azure Machine Learning Studio
 
+![Upgrade to Enterprise and Browse to Studio](/images/upgrade-to-enterprise.PNG)
+
 ## Create Additional Resources Needed
-Once you have created the base Azure Machine Learning Service we need to add additional compute resources.
+Once you have created the base Azure Machine Learning Service and entered the Studio window (http://ml.azure.com) we need to add additional compute resources.
 
 ### Create Compute Targets
 1. Create Notebook VM
@@ -84,16 +88,22 @@ Once you have created the base Azure Machine Learning Service we need to add add
 
 ### 1. Upload the dataset to the Datasets in AML
 * Download dataset to local from [here](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/datasets/ForecastingData.csv)
-* Click `Datasets` in Azure Machine Learning Service
-* Click `Create from local`
+* Click `Datasets` in Azure Machine Learning Studio
+* Click `Create dataset` and 'From local files'
+* Browse for the dataset downloaded
 * Fill out the form and upload the dataset
+
+![Upload new dataset](/images/create-dataset.PNG)
 
 ### 2. Data Preparation Stages
 
 1. Navigate to your notebook VM in the Compute tab
-2. Select the `Jupyter` option. (This will not display until the VM is in a `running` state.)
-3. Click the terminal from the home page of Jupyter lab
-4. Clone the repo from the terminal in Jupyter lab
+2. Select the `Jupyter Lab` option. (This will not display until the VM is in a `running` state.)
+3. Click the terminal from the home page of Jupyter Lab
+
+![Jupyter Lab terminal View](/images/jupyter-lab-terminal.PNG)
+
+4. Clone the repo from the terminal in Jupyter Lab
     * `git clone https://github.com/microsoft/ignite-learning-paths-training-aiml.git`
 5. Also in the terminal `pip install holidays`
 6. Open the `ignite-learning-paths-training-aiml` cloned folder and navigate to the `ignite-ailml30-get-prediction.ipynb` file and click to open it.
@@ -102,6 +112,7 @@ Once you have created the base Azure Machine Learning Service we need to add add
 8. Update the path to the csv file
 9. Run and review all data processing cells until you reach 'Create function to get prediction from API' - we will revisit this notebook again later in the workshop
 
+![Python Notebook with Data Processing code](/images/jupyter-lab-ipynb.PNG)
 
 ### 3. Start Building the  Model
 
