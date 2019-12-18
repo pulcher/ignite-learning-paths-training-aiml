@@ -146,7 +146,7 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
     * This is not a rule and can change base on different model needs.
 * Drag the `Train Model` onto the workspace
     * Connect the 1st output port of the `Split Data` module to the 2nd input port of the `Train Model` module
-    * Select the label column name `Values` from the parameters on the right
+    * Select Edit columns and type `Value` and enter as the target column to train on
 * Drag the `Boosted Decision Tree Regression` onto the workspace
 * Drag the `Score Model` onto the workspace
 * Drag the `Evaluate` onto the workspace
@@ -164,16 +164,20 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 
 ![Run Setup](images/run-setup.PNG)
 
-*This will take around XX mins to run ...*
+*This will take around 15 - 20 mins to run ...*
+
+Once you see all modules with green ticks next to them:
+
+![Experiment run complete](images/run-complete.PNG)
 
 * Rename the created column `Scored Labels` to `Forecast`
     * Drag the `Edit Metadata` onto the workspace
     * Connect `Score Model` with the `Edit Metadata` module
     * In the `Parameters` of the `Edit Metadata` module. Click `Edit Columns`
-    * Type `Score Labels` into the text box (no need to change any of the defaults)
+    * Type `Scored Labels` into the text box (no need to change any of the defaults)
     * Click `Save`
     * Next update the `New Column Name` field on the `Parameters` to `Forecast`
-* Transform the normalized value back to full item counts
+* Transform the normalized values back to full item counts
     * Drag the `Apply Math Operation` onto the workspace
     * Connect `Edit Metadata` to `Apply Math Operation`
     * Set the `Basic math function` to `Exp`
@@ -186,13 +190,21 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 * These are the columns the data demo app will be expecting when we post to get a result from the completed and deployed model.
 * Run the training
 
+![Complete Experiment ready for Deployment](images/prepare-for-deployment.PNG)
+
 ### 4. Create Inference Pipeline and Deploy the Model
 * Click `Create inference pipeline` then select `Real-time inference pipeline`
 * Ensure the `Web Service Output` is connected to the last data processing step module `Select Columns in Dataset`
 * Click `Run`
+
+![Real-time inference pipeline ready](images/deployment-ready.PNG)
+
 * Click `Deploy`
 * Navigate to the deployed web service from the left nav.
 * Click on the name of the web service created in advance.
+
+![]()
+
 * Click `Test` and to see how it performs on a scored data item.
 * Click `Consume` and to see the sample code provided for integrating the web service.
 
@@ -203,6 +215,8 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 3. Rerun file up until the 'Create function to get prediction from API' cell
 4. Update the endpoint URL and the key within the prediction API code cell
 7. Run the rest of the code to see your predictions
+
+![Run Python REST API code from Jupyter Lab](images/run-api-python.PNG)
 
 
 ## Resources and Continue Learning
