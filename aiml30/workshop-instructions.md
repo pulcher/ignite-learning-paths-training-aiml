@@ -77,9 +77,13 @@ Once you have created the base Azure Machine Learning Service and entered the St
     ![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateMlCompute.gif)
 3. Create Kubernetes Compute
     * Click on the nav "Compute"
+    * Select "Inference Clusters"
     * Click "New"
     * Enter a name for the resource
-    * Select "Kubernetes Service" from the dropdown
+    * Under Kubernetes Service - select "Create New"
+    * Select the same region as your other resources
+    * Keep standard size machine
+    * Select Dev-test
     * Click "Create"
     ![Create Kubernetes](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateKubService.gif)
 
@@ -200,13 +204,18 @@ Once you see all modules with green ticks next to them:
 ![Real-time inference pipeline ready](images/deployment-ready.PNG)
 
 * Click `Deploy`
+* Complete deployment details as shown below
+
+![Deployment real-time endpoint details](images/real-time-endpoint.PNG)
+
 * Navigate to the deployed web service from the left nav.
-* Click on the name of the web service created in advance.
 
-![]()
+![Find your deployed endpoint](images/endpoint.PNG)
 
-* Click `Test` and to see how it performs on a scored data item.
-* Click `Consume` and to see the sample code provided for integrating the web service.
+* Click on the name of the web service.
+* Review the details of the web service and select Test
+* Under the test tab use the default values and click the Test button - you will see only the 4 columns we selected for output
+* Click Consume and make a note of your endpoint and key
 
 ### 5. Test API with Python in Notebook VMs using Jupyter Notebooks
 
@@ -218,6 +227,7 @@ Once you see all modules with green ticks next to them:
 
 ![Run Python REST API code from Jupyter Lab](images/run-api-python.PNG)
 
+### Congratulations you have built a forecasting model using Azure Machine Learning Designer
 
 ## Resources and Continue Learning
 
