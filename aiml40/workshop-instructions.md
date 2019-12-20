@@ -88,7 +88,7 @@ In this task, you will explore how Automated Machine Learning can be used to bui
 3. Select the dataset.
 4. From the **Explore** tab, have a look at the data.
 
-![Dataset View](images/dataset view.PNG)
+![Dataset View](images/datasetview.PNG)
 
 5. Go to **Automated ML** tab and click **+New Automated ML Run**
 
