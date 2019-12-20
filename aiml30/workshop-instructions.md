@@ -137,7 +137,7 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 * Expand `Datasets` and `My Datasets`
 * Drag and drop the uploaded dataset onto the experiment workspace
 
-![Add a module to the workspace]/images/add-module.PNG)
+![Add a module to the workspace](images/add-module.PNG)
 
 * Drag the `Select Columns in Dataset` onto the workspace (In the `Data Transformation` Category)
     * Connect the output of the dataset to the input circle of the `Select Columns in Dataset` module
