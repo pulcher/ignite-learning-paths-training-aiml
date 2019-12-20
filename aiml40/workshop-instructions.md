@@ -104,7 +104,7 @@ In this task, you will explore how Automated Machine Learning can be used to bui
 12. Review all settings available to you
 13. Click **Finish**.
 
-*The experiment will take quite a long time to run, move onto Task 3 and revisit the the results in around XX mins*
+*The experiment will take quite a long time to run, move onto Task 3 and revisit the the results in around 15 mins*
 
 Once the experiment has completed you can review the overview in the Jupyter Notebook. But also with the portal
 * Go to Azure Machine Learning Studio
