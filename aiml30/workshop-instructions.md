@@ -229,6 +229,8 @@ Once you see all modules with green ticks next to them:
 
 ### Congratulations you have built a forecasting model using Azure Machine Learning Designer
 
+> If this is the last workshop you are completing, don't forget to delete your resources to save Azure cost. Go to the Azure Portal, select Resource groups and select the resource group name you created for this workshop. Once in the resource group click delete and type the name of the resource group to confirm deletion
+
 ## Resources and Continue Learning
 
 Here is a list of related training and documentation.

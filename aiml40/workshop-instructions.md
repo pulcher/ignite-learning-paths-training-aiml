@@ -106,7 +106,14 @@ In this task, you will explore how Automated Machine Learning can be used to bui
 
 *The experiment will take quite a long time to run, move onto Task 3 and revisit the the results in around XX mins*
 
-<review results>
+Once the experiment has completed you can review the overview in the Jupyter Notebook. But also with the portal
+* Go to Azure Machine Learning Studio
+* Clicks on Experiments
+* Select the 'absa' experiment
+* Click the latest run
+* Explore the tabs for metrics, information and logs about the experiment
+
+![Explore the experiment metrics in the portal](images/reveiw-exp.PNG)
 
 ## Task 3: Azure Machine Learning SDK
 
@@ -121,4 +128,42 @@ All of the instructions for this part of the task are located in the absa.ipynb 
 ![Download the config.json file from the Azure Portal](images/config-json.PNG)
 
 * Upload the config.json file to the Notebook VM Jupyter environment
-* Open Notebook and follow instructions
+* Open Notebook, follow instructions and run each cell step by step reading the code and reviewing the Azure ML SDK
+
+In this notebook you will:
+* Connect from jupyter notebook to the Azure Machine Learning Service (using a config.json file)
+* Upload datasets to the Azure Machine Learning Studio
+* Create a train.py file
+* Create an experiment
+* Create a compute environment setup that will be able to run your train.py script
+* Submit an experiment
+* Review the experiment running
+
+![Experiment Running screenshot](images/experiment-running.PNG)
+
+* Fine tune the experiment using Hyperparameter tuning
+
+![Hyperparameter Tuning screenshot](images/hyperparameter-tuning.PNG)
+
+### Congratulations you have built a bespoke open source NLP model using Azure Machine Learning SDK and Studio
+
+> If this is the last workshop you are completing, don't forget to delete your resources to save Azure cost. Go to the Azure Portal, select Resource groups and select the resource group name you created for this workshop. Once in the resource group click delete and type the name of the resource group to confirm deletion
+
+## Resources and Continue Learning
+
+### Getting Started Series
+
+* [Azure Cognitive Services Text Analytics API](https://aka.ms/TextCogSvc​)
+* [Automated Machine Learning](https://aka.ms/AutomatedMLDoc​)
+* [Hyperparameter Tuning](https://aka.ms/AzureMLHyperDrive​)
+* [Azure ML Services and the Python SDK](https://aka.ms/AA3dzht) ​
+
+### Other Materials
+
+* [9 Advanced Tips for Production Machine Learning](http://aka.ms/9TipsProdML)
+* [Intel Aspect-Based Sentiment Analysis Page](https://www.intel.ai/introducing-aspect-based-sentiment-analysis-in-nlp-architect/)
+* Azure ML Best Practice Repos:
+    * [Natural Language Processing](https://github.com/microsoft/nlp/)
+    * [Computer Vision](https://github.com/microsoft/ComputerVision)
+    * [Recommenders](https://github.com/microsoft/Recommenders)
+
