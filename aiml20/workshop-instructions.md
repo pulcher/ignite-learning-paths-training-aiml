@@ -25,21 +25,11 @@ TAs a data-driven company, Tailwind Traders understands the importance of using 
 * [Visual Studio Code](https:/code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
 * Basic understanding of how to access code and instructions from [GitHub](https://guides.github.com/)
 
-## Deploy the Workshop Environment:
+# Deploy the Workshop Environment:
 
 ## Clone the repository to your local machine
 
 You will need the contents of https://github.com/microsoft/ignite-learning-paths-training-aiml/tree/master/aiml20 on your local machine. The easiest way to do this is to visit the [Developer's Guide to AI Learning Paths repository](https://github.com/microsoft/ignite-learning-paths-training-aiml) and click the "Clone or download" button. We will refer to files relative to the `aiml20` folder.
-
-## Find your Azure Subscription ID
-
-In the [Azure Portal](https://portal.azure.com), sign in and click on
-"Subscriptions" in the left menu bar. Click on the Subscription Name you will be
-using, and copy the "Subscription ID" shown there. You'll need it later when you
-create resources.
-
-Alternatively, run `az account show` in the Azure CLI and copy the `id` value
-shown.
 
 ## Deploy the Tailwind Traders website.
 
@@ -92,7 +82,7 @@ This was forked on 2019-10-25 and is known to work.)
 
 Check "I agree to the terms and condtions" and click "Purchase".
 
->*This could take around 15 minutes to deploy, continue the task and check back* 
+>*This could take around 15 minutes to deploy, continue the workshop and check back later* 
 
 The deployed website URL will be of the form SITENAME.azurewebsites.net (using the Site Name you provided above), or you can find it as follows:
 
@@ -102,40 +92,9 @@ The deployed website URL will be of the form SITENAME.azurewebsites.net (using t
 
 * Look at the "URL" value displayed in the right pane
 
-The website URL will be displayed after the "Setting up Source Control" step, or you can inspect the "App Service" resource.
-
 ### Install the "Simple" ONNX model
 
 Follow the instructions in [DEMO ONNX deployment.md](DEMO%20ONNX%20deployment.md#load-the-simple-onnx-model) under the heading "Load the Simple ONNX model". This will degrade the "Shop by Photo" tool in the app to only recognize hammers and drills.
-
-## Configure Visual Studio Code
-
-Install the extension [Azure
-Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
-(On Windows, you will also need to [install node.js](https://nodejs.org/).) In VS Code, log
-into Azure with the "Azure: Sign In" command (use Control-Shift-P to open the
-Command Palette). To run Azure CLI commands from a script in VS Code, use
-"Terminal: Run Selected Text in Azure Terminal" to copy commands.)
-
-Alternatively you can [install the Azure
-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=msignitethetour2019-github-aiml20)
-on your local Windows, MacOS or Linux machine. If you don't have it installed,
-you can also launch the [Azure Cloud
-Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?WT.mc_id=msignitethetour2019-github-aiml20)
-and run these commands from a browser window. 
-
-## Prepare Visual Studio for demo
-
-- Open `vision_demo.sh`
-- launch a Cloud Shell with "Azure: Open Bash In Cloud Shell". (If you prefer, you can use the Azure CLI locally.)   
-
-## Open browser pages ready to demo.
-
-* The deployed Tailwind Trader app 
-* https://portal.azure.com/?feature.customportal=false#home (browse to resources - note this link shows the public portal, not the preview version for those with access)  
-* https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/
-* https://customvision.ai
-* https://lutzroeder.github.io/netron/
 
 ## Find the image files on your local machine
 
@@ -149,17 +108,145 @@ use these images to train the Custom Vision model. The folder contains the follo
 * screwdrivers
 
 These images will be used to test the Computer Vision service and create a model
-with the Custom Vision service.
+with the Custom Vision service later on in this workshop.
 
-These images were sourced from Wikimedia Commons and used under their respective
+*These images were sourced from Wikimedia Commons and used under their respective
 Creative Commons licenses. See the file [ATTRIBUTIONS.md](https://github.com/microsoft/ignite-learning-paths-training-aiml/blob/master/aiml20/CV%20training%20images/ATTRIBUTIONS.md) for
-details.
+details.*
 
 Additional test images can be found in the `test images` folder. These images will not be used in
 training, but will be used to test that our models are working.
 
-## Task 1: Azure Cognitive Services, Computer Vision
+# Task 1: Azure Cognitive Services, Computer Vision
 
+In this task, we will use Azure Computer Vision to detect the type of object an image represents. 
+
+* First, we will use the **Computer Vision online web-form** to upload an image and observe the results.
+* Then, we will use the **Computer Vision API** to collect the same information
+programatically, using curl.
+
+## Defining the problem: Shop by Photo doesn't work right
+
+The problem that Tailwind Traders has is the Shop by Photo tool in the Tailwind Traders website isn't correctly identifying products. Once your Azure deployment is complete:
+* Go to the resource group you created
+* Select your app service resource
+* In the top summary information about the resource select the URL field
+* This will open the Tailwind Traders website for you to review
+* Find the 'start smart shopping button' - **you will need this again shortly**
+
+## Using Computer Vision via the Web interface
+
+Let's try using computer vision on a picture of a hardware product. If we can
+identify a product that Tailwind Traders sells by name, we can search for that
+name in the catalog for the "Shop by Photo" app.
+
+1. Visit the Computer Vision webpage at
+   [https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/?WT.mc_id=msignitethetour2019-github-aiml20)
+
+2. Scroll down to the "Analyze an Image" section. It looks like this:
+
+!["Computer Vision: Analyze an Image"](img/Computer%20Vision%20Analyze%20an%20Image.png)
+
+3. Click the "Browse" button, and choose "man in hardhat.jpg" from the "test
+   images" folder in "CV Training Images".
+
+4. After a moment, the analysis of your image will appear in the right pane. It
+   looks like this:
+
+```
+FEATURE NAME:	VALUE
+
+Objects	[ { "rectangle": { "x": 138, "y": 27, "w": 746, "h": 471 }, "object": "headwear", "confidence": 0.616 }, { "rectangle": { "x": 52, "y": 33, "w": 910, "h": 951 }, "object": "person", "confidence": 0.802 } ]
+
+Tags	[ { "name": "man", "confidence": 0.999212 }, { "name": "headdress", "confidence": 0.99731946 }, { "name": "person", "confidence": 0.995057464 }, { "name": "clothing", "confidence": 0.991814733 }, { "name": "wearing", "confidence": 0.9827137 }, { "name": "hat", "confidence": 0.9691986 }, { "name": "helmet", "confidence": 0.9227209 }, { "name": "headgear", "confidence": 0.840476155 }, { "name": "personal protective equipment", "confidence": 0.8358513 }, { "name": "looking", "confidence": 0.832229853 }, { "name": "hard hat", "confidence": 0.8004248 }, { "name": "human face", "confidence": 0.785058737 }, { "name": "green", "confidence": 0.774940848 }, { "name": "fashion accessory", "confidence": 0.706475437 } ]
+
+Description	{ "tags": [ "man", "headdress", "person", "clothing", "wearing", "hat", "helmet", "looking", "green", "jacket", "shirt", "standing", "head", "suit", "glasses", "yellow", "white", "large", "phone", "holding" ], "captions": [ { "text": "a man wearing a helmet", "confidence": 0.8976638 } ] }
+
+Image format	"Jpeg"
+
+Image dimensions	1000 x 1000
+
+Clip art type	0
+
+Line drawing type	0
+
+Black and white	false
+
+Adult content	false
+
+Adult score	0.0126242451
+
+Racy	false
+
+Racy score	0.0156497136
+
+Categories	[ { "name": "people_", "score": 0.69140625 } ]
+
+Faces	[ { "age": 37, "gender": "Male", "faceRectangle": { "top": 419, "left": 363, "width": 398, "height": 398 } } ]
+
+Dominant color background	"White"
+
+Dominant color foreground	"White"
+
+Accent Color	#90A526
+```
+
+*(Note, the above analysis may change in the future: the Computer Vision model is
+updated regularly.)*
+
+Note that in the first "Objects" result, two objects "headwear" and "person" are
+detected, and their locations in the image is given. The object we want to
+detect is classified "headwear", but for our application we need a more specific
+classification: "hard hat". However "hard hat" is not one of the object types
+that Computer Vision currently detects. (We'll address this problem with Custom
+Vision, later.) Also note that a confidence score is given for each object
+classification.
+
+The second "Tags" result gives a list of labels associated with the entire
+image. The tag with the highest confidence (listed first) is "man", which
+doesn't help us much. The second tag, "headdress", is not exactly what we are
+looking for either.
+
+The other responses are also interesting, take a look at what's included:
+
+* A caption for the photo ("a man wearing a helmet") in the Description field.
+
+* Image features (is it black and white? a line drawing?)
+
+* Details of any faces detected in the image (identified as a 37-year-old male in this case)
+
+* A score for the content of the image: is it "Adult" or "Racy"?
+
+* Color analysis for the image: the dominant foreground, accent, and background colors.
+
+We're really only interested in the "Tags" field for our purposes, so we'll find
+out how to extract that programatically in the next section.
+
+## Using Computer Vision via the API
+
+You can [control Computer Vision programatically using its REST
+API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi?WT.mc_id=msignitethetour2019-github-aiml20).
+You can do this from just about any language or application that has access to
+the Web, but we will use [curl](https://curl.haxx.se/), a common command-line
+application for interfacing with URLs and collecting their outputs. The curl
+application comes pre-installed on most Linux distributions and in recent
+versions of Windows 10 (1706 and later). In this workshop we will use the Azure Cloud Shell to run these commands 
+
+Open the file [`vision_demo.sh`](vision_demo.sh) in Visual Studio Code to review the commands you are going to run
+
+Then go to the Azure Portal and click the Azure Cloud Shell button in the top right as shown in red below
+
+![Azure Cloud Shell Button](img/azure-cloud-shell.PNG)
+
+The commands in this script will:
+
+1. Log into your Azure subscription (this step is unneccessary if using Cloud Shell)
+2. Create an Azure Resource Group
+3. Create a Cognitive Service key. (Note: this is an omnibus key that we will also use for Custom Vision, later.)
+4. Find the key
+5. Use CURL to analyze two images
+
+Once the cloud shell in open and loaded a BASH shell - submit each of the [`vision_demo.sh`](vision_demo.sh) commands, step-by-step and review what they are doing to evaluate the test images.
 
 ## Task 2: Azure Custom Vision
 
