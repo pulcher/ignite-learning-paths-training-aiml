@@ -32,6 +32,7 @@ In this session, we will explore the complete path of integrating text analysis 
 
 >*If you have completed Workshop 2 you DO NOT need to use the deploy to Azure button below. You will reuse the same Azure Machine Learning workspace and you can also reuse compute targets if you already have them created*
 
+
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fignite-learning-paths-training-aiml%2Fmaster%2Faiml40%2Ftemplate%2Fazuredeploy.json" target="_blank">
  <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
@@ -147,7 +148,7 @@ In this notebook you will:
 
 ### Congratulations you have built a bespoke open source NLP model using Azure Machine Learning SDK and Studio
 
-> If this is the last workshop you are completing, don't forget to delete your resources to save Azure cost. Go to the Azure Portal, select Resource groups and select the resource group name you created for this workshop. Once in the resource group click delete and type the name of the resource group to confirm deletion
+> This is the last workshop you are completing so don't forget to delete all your resources to save Azure cost. Go to the Azure Portal, select AIML20, AIML30 and AIML40 Resource groups and click delete and type the name of the resource group to confirm deletion.
 
 ## Resources and Continue Learning
 

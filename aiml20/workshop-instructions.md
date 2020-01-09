@@ -422,6 +422,8 @@ Now lets step up the machine learning details by building our own bespoke machin
 
 [Go to Next Lab](../aiml30/workshop-instructions.md)
 
+> If this is the last workshop you are completing, don't forget to delete your resources to save Azure cost. Go to the Azure Portal, select Resource groups and select the resource group name you created for this workshop. Once in the resource group click delete and type the name of the resource group to confirm deletion
+
 # Resources and Continued Learning
 
 ### Cognitive Services information
