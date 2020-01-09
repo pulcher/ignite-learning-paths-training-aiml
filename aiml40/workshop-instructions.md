@@ -153,10 +153,10 @@ In this notebook you will:
 
 ### Getting Started Series
 
-* [Azure Cognitive Services Text Analytics API](https://aka.ms/TextCogSvc​)
-* [Automated Machine Learning](https://aka.ms/AutomatedMLDoc​)
-* [Hyperparameter Tuning](https://aka.ms/AzureMLHyperDrive​)
-* [Azure ML Services and the Python SDK](https://aka.ms/AA3dzht) ​
+* [Azure Cognitive Services Text Analytics API](https://aka.ms/TextCogSvc)
+* [Automated Machine Learning](https://aka.ms/AutomatedMLDoc)
+* [Hyperparameter Tuning](https://aka.ms/AzureMLHyperDrive)
+* [Azure ML Services and the Python SDK](https://aka.ms/AA3dzht)
 
 ### Other Materials
 
