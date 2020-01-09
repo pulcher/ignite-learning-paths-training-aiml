@@ -392,6 +392,35 @@ Rerun Shop by Photo, upload `test images / pliers.jpg`. Now it works!
 
 # Task 4: Azure Cognitive Services, Personalizer
 
+In this demo, observe how the layout of a website adapts to visitor actions using reinforcement learning and [Cognitive Services Personalizer](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/?WT.mc_id=msignitethetour2019-github-aiml20).
+
+Personalizer will dynamically reconfigure the interface to optimize the
+likelihood of an anonymous visitor clicking on the featured category in the
+Recommended section.
+Read more about Personalizer here: [What is Personalizer?](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/what-is-personalizer)
+
+1. Visit the Tailwind Traders homepage
+
+2. Observe the "Recommended" section and the order of the featured categories
+
+3. Refresh the page (you may need to do this a few of times). **Observe that
+   the layout changes.**
+
+The Personalizer service is tracking the anonymous visitors and recording the
+time of day, day of week, and browser OS used when clicking on categories. 
+The "reward" is whether or not the large, featured section was clicked. 
+
+Over time, Personalizer will determine the best category to feature based on
+time of day, day of week, and OS. It will also "explore" 20% of the time, to
+surface categories that would otherwise not be presented.
+
+# Congratulations
+
+You completed all the tasks using prebuilt AI offered by Microsoft Azure
+
+Now lets step up the machine learning details by building our own bespoke machine learning models faster than you would think
+
+[Go to Next Lab](../aiml30/workshop-instructions.md)
 
 # Resources and Continued Learning
 
