@@ -10,26 +10,26 @@ TAs a data-driven company, Tailwind Traders understands the importance of using 
 * **Azure Basics**
     * I would recommend getting a basic understanding of cloud technologies and Azure (storage, VMs and networking) from [Azure Fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/?WT.mc_id=aimlworkshop-github-amynic) 
 * **Azure AI introduction**
-    * (Prebuilt AI) [Classify images](https:/docs.microsoft.com/en-us/learn/paths/classify-images-with-vision-services/?WT.mc_id=aimlworkshop-github-amynic) 
+    * (Prebuilt AI) [Classify images](https://docs.microsoft.com/en-us/learn/paths/classify-images-with-vision-services/?WT.mc_id=aimlworkshop-github-amynic) 
     * (Prebuilt AI) [Evaluate Text](https://docs.microsoft.com/en-us/learn/paths/evaluate-text-with-language-services/?WT.mc_id=aimlworkshop-github-amynic) 
-    * (Data Science) [Using Python and Azure Notebooks](https:/docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/?WT.mc_id=aimlworkshop-github-amynic)
+    * (Data Science) [Using Python and Azure Notebooks](https://docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/?WT.mc_id=aimlworkshop-github-amynic)
     * (Bespoke Machine Learning) [Introduction to Azure Machine Learning](https://docs.microsoft.com/en-us/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=aimlworkshop-github-amynic)
 * **General other interesting learning:**
     * (Theory/approaches) [Machine Learning Crash Course](https://docs.microsoft.com/en-us/learn/paths/ml-crash-course/?WT.mc_id=aimlworkshop-github-amynic)
-    * [Principles for Responsible AI](https:/docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/?WT.mc_id=aimlworkshop-github-amynic)
+    * [Principles for Responsible AI](https://docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/?WT.mc_id=aimlworkshop-github-amynic)
 
 ## Pre-requisites
 
 * Laptop with a modern web browser (Edge, Chrome etc)
-* Access to a [Azure Subscription](https:/azure.microsoft.com/en-us/free/students/?WT.mc_id=aimlworkshop-github-amynic)
-* [Visual Studio Code](https:/code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
+* Access to a [Azure Subscription](https://azure.microsoft.com/en-us/free/students/?WT.mc_id=aimlworkshop-github-amynic)
+* [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
 * Basic understanding of how to access code and instructions from [GitHub](https://guides.github.com/)
 
 # Deploy the Workshop Environment:
 
 ## Clone the repository to your local machine
 
-You will need the contents of https://github.com/microsoft/ignite-learning-paths-training-aiml/tree/master/aiml20 on your local machine. The easiest way to do this is to visit the [Developer's Guide to AI Learning Paths repository](https://github.com/microsoft/ignite-learning-paths-training-aiml) and click the "Clone or download" button. We will refer to files relative to the `aiml20` folder.
+You will need the contents of https://github.com/amynic/ignite-learning-paths-training-aiml/tree/workshop on your local machine. The easiest way to do this is to visit the [Developer's Guide to AI Learning Paths repository](https://github.com/amynic/ignite-learning-paths-training-aiml/tree/workshop) and click the "Clone or download" button. We will refer to files relative to the `aiml20` folder.
 
 ## Deploy the Tailwind Traders website.
 
