@@ -12,19 +12,19 @@ In this workshop, youâ€™ll learn the data science process that Tailwind Tradersâ
 * **Azure Basics**
     * I would recommend getting a basic understanding of cloud technologies and Azure (storage, VMs and networking) from [Azure Fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/?WT.mc_id=aimlworkshop-github-amynic) 
 * **Azure AI introduction**
-    * (Prebuilt AI) [Classify images](https:/docs.microsoft.com/en-us/learn/paths/classify-images-with-vision-services/?WT.mc_id=aimlworkshop-github-amynic) 
+    * (Prebuilt AI) [Classify images](https://docs.microsoft.com/en-us/learn/paths/classify-images-with-vision-services/?WT.mc_id=aimlworkshop-github-amynic) 
     * (Prebuilt AI) [Evaluate Text](https://docs.microsoft.com/en-us/learn/paths/evaluate-text-with-language-services/?WT.mc_id=aimlworkshop-github-amynic) 
-    * (Data Science) [Using Python and Azure Notebooks](https:/docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/?WT.mc_id=aimlworkshop-github-amynic)
+    * (Data Science) [Using Python and Azure Notebooks](https://docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/?WT.mc_id=aimlworkshop-github-amynic)
     * (Bespoke Machine Learning) [Introduction to Azure Machine Learning](https://docs.microsoft.com/en-us/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=aimlworkshop-github-amynic)
 * **General other interesting learning:**
     * (Theory/approaches) [Machine Learning Crash Course](https://docs.microsoft.com/en-us/learn/paths/ml-crash-course/?WT.mc_id=aimlworkshop-github-amynic)
-    * [Principles for Responsible AI](https:/docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/?WT.mc_id=aimlworkshop-github-amynic)
+    * [Principles for Responsible AI](https://docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/?WT.mc_id=aimlworkshop-github-amynic)
 
 ## Pre-requisites
 
 * Laptop with a modern web browser (Edge, Chrome etc)
-* Access to a [Azure Subscription](https:/azure.microsoft.com/en-us/free/students/?WT.mc_id=aimlworkshop-github-amynic)
-* [Visual Studio Code](https:/code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
+* Access to a [Azure Subscription](https://azure.microsoft.com/en-us/free/students/?WT.mc_id=aimlworkshop-github-amynic)
+* [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
 * Basic understanding of how to access code and instructions from [GitHub](https://guides.github.com/)
 
 ## Deploy the Workshop Environment:
