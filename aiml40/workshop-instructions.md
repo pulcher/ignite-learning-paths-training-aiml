@@ -130,6 +130,7 @@ All of the instructions for this part of the task are located in the absa.ipynb 
 
 * Upload the config.json file to the Notebook VM Jupyter environment
 * Open Notebook, follow instructions and run each cell step by step reading the code and reviewing the Azure ML SDK
+* Confirm in the top left corner the Kernel is set to 'Python 3.6 - AzureML' - if not select 'kernel' from the menu, 'change kernel', 'Pyhton 3.6 - AzureML'
 
 In this notebook you will:
 * Connect from jupyter notebook to the Azure Machine Learning Service (using a config.json file)
