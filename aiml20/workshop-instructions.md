@@ -49,7 +49,7 @@ In the form that appears, select the following options:
   delete all associated resources.
 
 * Location: The Azure region where the resources will be deployed. You must
-  be able to deploy SQL Database and App Services in that region. 
+  be able to deploy SQL Database and App Services in that region. (WestUS2 has been tested)
 
   Note: Since Personalizer is currently only available in WestUS2 and WestEurope, it will be deployed there regardless of what you choose.
 
