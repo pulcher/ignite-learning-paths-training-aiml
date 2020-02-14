@@ -16,3 +16,32 @@ You'll learn how you can build an end-to-end architecture, with Azure Cognitive 
 
 # Deploy the Workshop Environment:
 
+
+
+
+
+
+
+
+
+# Teardown Instructions
+
+### Full Teardown
+
+* Enter the Azure Portal and delete the **Azure Resource Group** you created to remove all resources for this project
+
+
+# Resources and Continued Learning
+
+**Microsoft Learn:**
+* [Introduction to Azure Search](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-search/?WT.mc_id=msignitethetour2019-github-aiml10)
+* [Microsoft Azure Artificial Intelligence (AI) strategy and solutions](https://docs.microsoft.com/en-us/learn/modules/azure-artificial-intelligence/?WT.mc_id=msignitethetour2019-github-aiml10)
+
+**Azure Documentation**
+* [What is "cognitive search" in Azure Search?](https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-intro/?WT.mc_id=msignitethetour2019-github-aiml10)
+* [What is knowledge store in Azure Search?](https://docs.microsoft.com/en-us/azure/search/knowledge-store-concept-intro)
+
+
+# Feedback Loop
+
+Do you have a comment, feedback, suggestion? Currently, the best feedback loop for content changes/suggestions/feedback is to create a new issue on this GitHub repository. To get all the details about how to create an issue please refer to the [Contributing docs](../CONTRIBUTING.md)

@@ -12,7 +12,8 @@ Below is a title and abstract for each part of the workshop provided. Click on t
 
 #### Session Code: AIML10
 
-Tailwind Traders has a lot of legacy data that they’d like their developers to leverage in their apps – from various sources, both structured and unstructured, and including images, forms, pdf files, and several others. In this session, you'll learn how the team used Cognitive Search to make sense of this data in a short amount of time and with amazing success. We'll discuss tons of AI concepts, like the ingest-enrich-explore pattern, skillsets, cognitive skills, natural language processing, computer vision, and beyond.
+In this workshop you will make sense of unstructured data using AI services. You are a Tailwind Traders developer and Tailwind Traders has a lot of legacy data that they’d like to leverage in their apps. This data is from various sources, both structured and unstructured, and includes images, forms, pdf files etc. 
+You'll learn how you can build an end-to-end architecture, with Azure Cognitive Search at its heart, to make sense of this unstructured data within the business. You’ll be introduced to AI concepts, like the ingest-enrich-explore pattern, skillsets, cognitive skills, natural language processing, computer vision, and beyond.
 
 
 ### [Using Pre-Built AI to Solve Business Challenges](aiml20/workshop-instructions.md)
