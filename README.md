@@ -8,16 +8,28 @@ In this workshop you will go through various levels of AI tasks using the Micros
 
 Below is a title and abstract for each part of the workshop provided. Click on the first title to get going.
 
+### [Making Sense of your Unstructured Data with AI](aiml10/workshop-instructions.md)
 
-### [AIML20: Using Pre-Built AI to Solve Business Challenges](aiml20/workshop-instructions.md)
+#### Session Code: AIML10
+
+Tailwind Traders has a lot of legacy data that they’d like their developers to leverage in their apps – from various sources, both structured and unstructured, and including images, forms, pdf files, and several others. In this session, you'll learn how the team used Cognitive Search to make sense of this data in a short amount of time and with amazing success. We'll discuss tons of AI concepts, like the ingest-enrich-explore pattern, skillsets, cognitive skills, natural language processing, computer vision, and beyond.
+
+
+### [Using Pre-Built AI to Solve Business Challenges](aiml20/workshop-instructions.md)
+
+#### Session Code: AIML20
 
 As a data-driven company, Tailwind Traders understands the importance of using Artificial Intelligence to improve business processes and delight customers. Before investing in an AI team, their existing developers were able to demonstrate some quick wins using pre-built AI technologies. In this workshop, we will show how you can use Azure Cognitive Services to extract insights from retail data and go into the neural networks behind computer vision. You’ll learn how it works and how to augment the pre-built AI with your own images for custom image recognition applications.
 
-### [AIML30: Start Building Machine Learning Models Faster than You Think](aiml30/workshop-instructions.md)
+### [Start Building Machine Learning Models Faster than You Think](aiml30/workshop-instructions.md)
+
+#### Session Code: AIML30
 
 Tailwind Traders uses custom machine learning models to fix their inventory issues – without changing their Software Development Life Cycle! How? Azure Machine Learning designer. In this session, you’ll learn the data science process that Tailwind Traders’ uses and get an introduction to Azure Machine Learning designer. You’ll see how to find, import, and prepare data, select a machine learning algorithm, train and test the model, and deploy a complete model to an API. Get the tips, best practices, and resources you and your development team need to continue your machine learning journey and build your first model.
 
-### [AIML40: Taking Models to the Next Level with Azure Machine Learning Best Practices](aiml40/workshop-instructions.md)
+### [Taking Models to the Next Level with Azure Machine Learning Best Practices](aiml40/workshop-instructions.md)
+
+#### Session Code: AIML40
 
 Tailwind Traders’ data science team uses natural language processing (NLP), and recently discovered how to fine-tune and build a baseline model with Automated ML. 
 
