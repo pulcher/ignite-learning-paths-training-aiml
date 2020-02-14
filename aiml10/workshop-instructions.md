@@ -14,19 +14,26 @@ You'll learn how you can build an end-to-end architecture, with Azure Cognitive 
 * [Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=aimlworkshop-github-amynic)
 * Basic understanding of how to access code and instructions from [GitHub](https://guides.github.com/)
 
-# Deploy the Workshop Environment:
+# Tasks
+This workshop consists of 5 tasks listed below which should be followed and achieved in order to complete the workshop. 
+
+- **Task 1**: [Azure Cognitive Search Basics](workshop-content/workshop-task1.md)
+- **Task 2**: [Form Recognizer Service](workshop-content/workshop-task2.md) 
+- **Task 3**: [Creating a Custom Invoice Reader Skill](workshop-content/workshop-task3.md)
+- **Task 4**: [Tying it all together](workshop-content/workshop-task4.md)
+- **Task 5**: [Implementing the Knowledge Store](workshop-content/workshop-task5.md)
 
 
+# Lets get Started ...
+
+Follow the link to proceed to [Task 1: Azure Cognitive Search Basics](workshop-content/workshop-task1.md)
 
 
+# Completed the Workshop?
 
+### Don't forget to delete your resources
 
-
-
-
-# Teardown Instructions
-
-### Full Teardown
+#### Full Teardown instructions
 
 * Enter the Azure Portal and delete the **Azure Resource Group** you created to remove all resources for this project
 
