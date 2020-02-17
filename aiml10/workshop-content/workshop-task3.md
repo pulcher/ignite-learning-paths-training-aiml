@@ -35,9 +35,9 @@ There are three main steps:
 
 # Run the Azure Function Locally
 
-1. Download the [InvoiceReaderSkill](../src/InvoiceReaderSkill) code found in this repo in [Visual Studio Code](https://code.visualstudio.com/) (make sure the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) are installed).
+1. Download the [InvoiceReaderSkill](../src/InvoiceReaderSkill) code found in this repo and open in [Visual Studio Code](https://code.visualstudio.com/) (make sure the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) are installed).
 
-2. Add a `local.settings.json` file to the folder with the following contents:
+2. Add a `local.settings.json` file to the InvoiceReaderSkill folder with the following contents:
 
 ```json
 {
@@ -51,11 +51,11 @@ There are three main steps:
   }
 }
 ```
-3. Run the `func host start` command to start the function.
+3. Run the `func host start` command in the terminal to start the function.
 
 4. Import the Postman Reader Skill Request [collection](../src/Collections/Reader_Skill.postman_collection.json) to Postman
 
-5. Open the `Local Forms Skills` Request and change the Pre-request script to set the `storageAccount` variable to your storage account (in the video the variable is `ttinvoicestorage`) and the `SASValue` to the appropriate Secure Access Signature to the `train` container. To learn how to get a Secure Access Signature, refer to our [brief explanation](../sas.md).
+5. Open the `Local Forms Skills` Request and change the Pre-request script to set the `storageAccount` variable to your storage account (in the video the variable is `ttinvoicestorage`) and the `SASValue` to the appropriate Secure Access Signature to the `test` container. To learn how to get a Secure Access Signature, refer to our [brief explanation](../sas.md).
 
 ```javascript
 pm.environment.set('storageAccount', '<YOUR STORAGE ACCOUNT>')
@@ -70,6 +70,8 @@ pm.environment.set('SASValue', '<SAS>')
 # Create Azure Function Resources
 
 It is assumed that the following commands are run in the same directory as the actual Function and you have logged into the Azure CLI using ```az login```
+
+Or use the Azure Cloud Shell in the Azure Portal to run the two create functions and then head back to VS Code to run the publish function code. 
 
 1. Run the following Azure CLI Commands to create the appropriate resources and publish the function:
 
@@ -88,7 +90,9 @@ Publish Function
 func azure functionapp publish {FUNCTION_NAME} --build remote
 ```
 
-2. Use Visual Studio Code to sync the local settings to the Azure Function by selecting the Azure button, navigating to the newly created function, right clicking on `Application Settings` and selecting `Upload Local Settings` (NOTE: Do not overwrite the existing variables).
+2. Use Visual Studio Code to sync the local settings to the Azure Function by selecting the Azure button, navigating to the newly created function, right clicking on `Application Settings` and selecting `Upload Local Settings` 
+
+> **(NOTE: Do not overwrite the existing variables).**
 
 ![Local Skill](../images/upload_settings.png "Local Skill")
 
@@ -98,7 +102,7 @@ func azure functionapp publish {FUNCTION_NAME} --build remote
 
 # Run the Azure Function in the Cloud
 
-1. Open the `Cloud Forms Skills` Request and change the Pre-request script to set the `storageAccount` variable to your storage account (in the video the variable is `ttinvoicestorage`) and the `SASValue` to the appropriate Secure Access Signature to the `train` container. To learn how to get a Secure Access Signature, refer to our [brief explanation](../sas.md).
+1. Open the `Cloud Forms Skills` Request and change the Pre-request script to set the `storageAccount` variable to your storage account (in the video the variable is `ttinvoicestorage`) and the `SASValue` to the appropriate Secure Access Signature to the `test` container. To learn how to get a Secure Access Signature, refer to our [brief explanation](../sas.md).
 
 ```javascript
 pm.environment.set('storageAccount', '<YOUR STORAGE ACCOUNT>')
@@ -110,5 +114,5 @@ pm.environment.set('SASValue', '<SAS>')
 
 ![Cloud Skill](../images/local_skill.png "Cloud Skill")
 
-# Next Demo
+# Next Task
 Learn how to tie everything together and finally build the end to end solution by continuing on to [Task 4 - Tying it all together](workshop-task4.md)
