@@ -11,14 +11,6 @@ In this workshop, youâ€™ll learn the data science process that Tailwind Tradersâ
 
 * **Azure Basics**
     * I would recommend getting a basic understanding of cloud technologies and Azure (storage, VMs and networking) from [Azure Fundamentals](https://docs.microsoft.com/en-us/learn/paths/azure-fundamentals/?WT.mc_id=aimlworkshop-github-amynic) 
-* **Azure AI introduction**
-    * (Prebuilt AI) [Classify images](https://docs.microsoft.com/en-us/learn/paths/classify-images-with-vision-services/?WT.mc_id=aimlworkshop-github-amynic) 
-    * (Prebuilt AI) [Evaluate Text](https://docs.microsoft.com/en-us/learn/paths/evaluate-text-with-language-services/?WT.mc_id=aimlworkshop-github-amynic) 
-    * (Data Science) [Using Python and Azure Notebooks](https://docs.microsoft.com/en-us/learn/paths/intro-to-ml-with-python/?WT.mc_id=aimlworkshop-github-amynic)
-    * (Bespoke Machine Learning) [Introduction to Azure Machine Learning](https://docs.microsoft.com/en-us/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=aimlworkshop-github-amynic)
-* **General other interesting learning:**
-    * (Theory/approaches) [Machine Learning Crash Course](https://docs.microsoft.com/en-us/learn/paths/ml-crash-course/?WT.mc_id=aimlworkshop-github-amynic)
-    * [Principles for Responsible AI](https://docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/?WT.mc_id=aimlworkshop-github-amynic)
 
 ## Pre-requisites
 
@@ -57,25 +49,25 @@ Once complete
 ## Create Additional Resources Needed
 Once you have created the base Azure Machine Learning Service and entered the Studio window (http://ml.azure.com) we need to add additional compute resources.
 
-### Create Compute Targets
-1. Create Notebook VM
+### Create Compute Instance
+1. Create Compute Instance (Notebook VM)
     * Click on the nav "Compute"
     * Click "New"
-    * Enter a name for your notebook VM
+    * Enter a name for your compute instance
     * Click Create
 ![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateNotebookVM.gif)
-2. Create Training Compute
+2. Create Training Cluster
     * Click on the nav "Compute"
     * Select 'Training Clusters'
     * Click "New"
     * Enter a name for the resource
-    * Select "Machine Learning Compute" from the dropdown
-    * Select the machine size, e.g. Standard_D3_v2
+    * Select the machine size, e.g. Standard_D2_v2
     * Select Low Priority
     * Enter the min and max nodes (recommend min of 0 and max of 5)
     * Click "Create"
     ![Create Compute](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/CreateMlCompute.gif)
-3. Create Kubernetes Compute
+
+3. Create Inference Cluster
     * Click on the nav "Compute"
     * Select "Inference Clusters"
     * Click "New"
@@ -94,14 +86,18 @@ Once you have created the base Azure Machine Learning Service and entered the St
 * Download dataset to local from [here](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/datasets/ForecastingData.csv)
 * Click `Datasets` in Azure Machine Learning Studio
 * Click `Create dataset` and 'From local files'
+* Provide and name for the dataset (e.g. ForecastingData) and choose Tabular as format
 * Browse for the dataset downloaded
 * Fill out the form and upload the dataset
+* On the confirmation page there is a small checkbox "Profile this dataset after creation" select this.
 
 ![Upload new dataset](images/create-dataset.PNG)
 
+![Profile dataset](images/profile-dataset.PNG)
+
 ### 2. Data Preparation Stages
 
-1. Navigate to your notebook VM in the Compute tab
+1. Navigate to your 'Compute instances' in the Compute tab
 2. Select the `Jupyter Lab` option. (This will not display until the VM is in a `running` state.)
 3. Click the terminal from the home page of Jupyter Lab
 
@@ -141,10 +137,26 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 
 * Drag the `Select Columns in Dataset` onto the workspace (In the `Data Transformation` Category)
     * Connect the output of the dataset to the input circle of the `Select Columns in Dataset` module
+
+There are two ways to complete this task:
+
+1)
+
     * Click `Edit columns` from the parameters menu on the right side.
     * Click `By Name`
     * Click `Add All`
     * Click `Minus` icon on the `Time` column to exclude it
+
+2) 
+
+    * Click 'With rules'
+    * Click 'Include' and 'All Columns'
+    * Click +
+    * Click 'Exclude' and 'Column Names' and type 'Time'
+
+![Select with rules](images/select-columns-or.PNG)
+
+
 * Drag the `Split Data` onto the workspace
     * Edit the parameters to split the data 70/30 by setting the `Fraction of rows in the first output dataset` to 0.7
     * This is not a rule and can change base on different model needs.
@@ -163,7 +175,7 @@ Go back to the Home page in the Azure Machine Learning studio (http://ml.azure.c
 ![Experiment wiring diagram](images/initial-exp-wiring.PNG)
 
 * Click the `Run` button at the top right of the screen
-* Select `Experiment`, click `+New Experiment`, enter experiment name 
+* Select `Experiment`, click `Create new`, enter experiment name 
 * Select `Run`
 
 ![Run Setup](images/run-setup.PNG)
