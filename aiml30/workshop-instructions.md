@@ -99,6 +99,8 @@ Once you have created the base Azure Machine Learning Service and entered the St
 
 ### 2. Data Preparation Stages
 
+> Note: If your Compute Instance has not finished creating please move onto the next task ['3. Start Building the Model'](#3.-start-building-the-model) and revisit this task when the compute has created. 
+
 1. Navigate to your 'Compute instances' in the Compute tab
 2. Select the `Jupyter Lab` option. (This will not display until the VM is in a `running` state.)
 3. Click the terminal from the home page of Jupyter Lab
