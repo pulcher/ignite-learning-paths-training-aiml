@@ -1,4 +1,4 @@
-# **Workshop:** Making Sense of your Unstructured Data with AI
+# **Workshop:** Integrate Custom Skills with Azure Cognitive Search
 
 ## Workshop Abstract
 
@@ -6,6 +6,8 @@ In this workshop you will make sense of unstructured data using AI services. You
 You'll learn how you can build an end-to-end architecture, with Azure Cognitive Search at its heart, to make sense of this unstructured data within the business. You’ll be introduced to AI concepts, like the ingest-enrich-explore pattern, skillsets, cognitive skills, natural language processing, computer vision, and beyond.
 
 ***Technologies included:** Azure Cognitive Search, Azure Storage and Storage Explorer, Azure Cognitive Services including Forms Recognizer, Azure Functions*
+
+> If you are presenting this content please find [resources here](workshop-instructions-presenter.md)
 
 ## Pre-requisites
 

@@ -1,4 +1,4 @@
-# Workshop: Start Building Machine Learning Models Faster than You Think
+# Workshop: No-Code/Low-Code Machine Learning
 
 ## Workshop Abstract
 
