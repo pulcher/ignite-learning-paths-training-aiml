@@ -1,11 +1,12 @@
-# Workshop 2: 
-# Start Building Machine Learning Models Faster than You Think
+# Workshop: Start Building Machine Learning Models Faster than You Think
 
 ## Workshop Abstract
 
 Tailwind Traders uses custom machine learning models to fix their inventory issues – without changing their Software Development Life Cycle! How? Azure Machine Learning Designer.
  
 In this workshop, you’ll learn the data science process that Tailwind Traders’ uses and get an introduction to [Azure Machine Learning Designer](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-designer). You’ll see how to find, import, and prepare data, select a machine learning algorithm, train and test a model, and deploy that complete model to an API. Get the tips, best practices, and resources you need to continue your machine learning journey, build your first model, and more.
+
+> If you are presenting this content please find [resources here](workshop-instructions-presenter.md)
 
 ## Pre-reading
 
