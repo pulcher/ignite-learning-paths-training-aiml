@@ -206,15 +206,16 @@ Once you see all modules with green ticks next to them:
     * Connect `Edit Metadata` to `Apply Math Operation`
     * Set the `Basic math function` to `Exp`
     * Click `Edit Columns` and type `Value` and `Forecast`
-    * Click `Save`
     * Set the `Output mode` to `Inplace`
 * Drag the `Select Columns in Dataset` module onto the workspace
 * Connect the `Apply Math Operation` to `Select Columns in Dataset`
 * Click `Edit Columns` and type the following column names `ID1,ID2,Value,Forecast`
 * These are the columns the data demo app will be expecting when we post to get a result from the completed and deployed model.
-* Run the training
+* Click Submit to run the new modules
 
 ![Complete Experiment ready for Deployment](images/prepare-for-deployment.PNG)
+
+*This will take around 10 mins to run ...*
 
 ### 4. Create Inference Pipeline and Deploy the Model
 * Click `Create inference pipeline` then select `Real-time inference pipeline`
