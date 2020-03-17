@@ -86,10 +86,12 @@ Once you have created the base Azure Machine Learning Service and entered the St
 * Download dataset to local from [here](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml30/datasets/ForecastingData.csv)
 * Click `Datasets` in Azure Machine Learning Studio
 * Click `Create dataset` and 'From local files'
-* Provide and name for the dataset (e.g. ForecastingData) and choose Tabular as format
-* Browse for the dataset downloaded
-* Fill out the form and upload the dataset
-* On the confirmation page there is a small checkbox "Profile this dataset after creation" select this.
+* Provide and name for the dataset (e.g. ForecastingData) and choose Tabular as format - click Next
+* Browse for the dataset downloaded - click Next
+* Fill out the form and upload the dataset. For 'Column headers' select 'Use headers from the first file' - click Next
+* Click Next on the Schema page
+* On the confirmation page there is a small checkbox "Profile this dataset after creation" select this and choose the training compute name you created above from the drop down box called 'Select compute for profiling'
+* Finally click Create
 
 ![Upload new dataset](images/create-dataset.PNG)
 
