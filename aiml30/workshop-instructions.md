@@ -178,13 +178,15 @@ There are two ways to complete this task:
 
 ![Experiment wiring diagram](images/initial-exp-wiring.PNG)
 
-* Click the `Run` button at the top right of the screen
+* Click the `Submit` button at the top right of the screen
 * Select `Experiment`, click `Create new`, enter experiment name 
-* Select `Run`
+* Select `Submit`
 
 ![Run Setup](images/run-setup.PNG)
 
 *This will take around 15 - 20 mins to run ...*
+
+> NOTE: If you have not completed Task 2 using Jupyter Lab on your Compute Instance - go back now whilst the experiment is running and complete
 
 Once you see all modules with green ticks next to them:
 
