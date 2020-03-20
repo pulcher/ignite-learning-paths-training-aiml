@@ -216,7 +216,7 @@ Once you see all modules with green ticks next to them:
 
 ![Complete Experiment ready for Deployment](images/prepare-for-deployment.PNG)
 
-*This will take around 10 mins to run ...*
+*This will take around 5-10 mins to run ...*
 
 ### 4. Create Inference Pipeline and Deploy the Model
 * Click `Create inference pipeline` then select `Real-time inference pipeline`
@@ -224,6 +224,8 @@ Once you see all modules with green ticks next to them:
 * Click `Run`
 
 ![Real-time inference pipeline ready](images/deployment-ready.PNG)
+
+*This will take around 10-20 mins to run ...*
 
 * Click `Deploy`
 * Complete deployment details as shown below
@@ -250,10 +252,6 @@ Once you see all modules with green ticks next to them:
 ![Run Python REST API code from Jupyter Lab](images/run-api-python.PNG)
 
 ### Congratulations you have built a forecasting model using Azure Machine Learning Designer
-
-Now lets step up the machine learning detail again by diving into the Azure Machine Learning SDK to build, deploy and manage our bespoke open source, code first ML models ...
-
-[Go to Next Lab](../aiml40/workshop-instructions.md)
 
 > If this is the last workshop you are completing, don't forget to delete your resources to save Azure cost. Go to the Azure Portal, select Resource groups and select the resource group name you created for this workshop. Once in the resource group click delete and type the name of the resource group to confirm deletion
 
