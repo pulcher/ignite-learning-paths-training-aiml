@@ -1,6 +1,7 @@
 ## Demo 2 - Using Form Recognizer
 
 [![Demo 2](images/demo2.png)](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml10/videos/Demo2.mp4 "Demo 2")
+__This video was made using the pre-release api.  It still shows the steps needed, but a few things have changed.  The text below has the correct updates__
 
 ## Summary
 In this exercise we learn how to use the Form Recognizer service. It is assumed that a storage account has been created (as described in the [first demo](demo1.md).)
@@ -73,8 +74,7 @@ The table below lists the variables set during this section of the exercise:
 ```javascript
 pm.environment.set('storageAccount', '<YOUR STORAGE ACCOUNT>')
 pm.environment.set('container', 'train')
-pm.environment.set('query', '<GET SHARED ACCESS SIGNATURE>')
-pm.environment.set('SASValue', '<SAS>')
+pm.environment.set('SASQueryValue', '<GET SHARED ACCESS SIGNATURE>')
 ```
 
 4. Hit Send on the Request.  You will not get a response in the.  As long as you get a 201 created as a status, this request worked.  May not have been successful, but you can check in the next step.
