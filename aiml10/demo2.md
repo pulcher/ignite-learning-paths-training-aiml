@@ -81,7 +81,7 @@ pm.environment.set('SASValue', '<SAS>')
 
 5. Open the **Get Models** request in  the collection.  Click the **Send** button and you should receive something that looks like:
 
-[Results of get models](images/postman-get-models.png)
+![Results of get models](images/postman-get-models.png)
 
 6. Set the `modelId` variable for the collection to the returned `modelId` indicated above.  As long as the status is `ready`, then you should have a valid model.  If something goes wrong, you will need to investigate.
 
