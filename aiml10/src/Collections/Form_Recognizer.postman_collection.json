@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c725206c-097b-48bc-96bd-47296d81c7d7",
+		"_postman_id": "37ee0598-c964-45fe-b25c-05b25df07452",
 		"name": "Form Recognizer",
 		"description": "Forms Recognizer API Calls",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -12,11 +12,11 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "10a89635-432b-4459-b85d-189cc73397e0",
+						"id": "a11d92ec-d73a-4f01-bbbc-ec69ddb85342",
 						"exec": [
-							"pm.environment.set('storageAccount', 'storage')",
-							"pm.environment.set('container', 'container')",
-							"pm.environment.set('SASValue', 'key')"
+							"pm.environment.set('storageAccount', 'hpinvoicestorage')",
+							"pm.environment.set('container', 'train')",
+							"pm.environment.set('SASQueryValue', 'sv=2019-02-02&st=2020-07-19T20%3A38%3A50Z&se=2020-07-20T20%3A38%3A50Z&sr=c&sp=rl&sig=smBx8ROpqBUlpjbKyeheiTFYgva3dAm%2BlYQOHeXY9Qo%3D')"
 						],
 						"type": "text/javascript"
 					}
@@ -34,19 +34,18 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"source\": \"https://{{storageAccount}}.blob.core.windows.net/{{container}}{{SASValue}}\",\r\n\t\"sourceFilter\": {\r\n\t\t\"includeSubFolders\": false\r\n\t}\r\n}"
+					"raw": "{\r\n\t\"source\": \"{{endpointstorage}}/{{container}}?{{SASQueryValue}}\",\r\n\t\"sourceFilter\": {\r\n\t\t\"includeSubFolders\": false\r\n\t}\r\n}\r\n"
 				},
 				"url": {
-					"raw": "https://{{endpoint}}/formrecognizer/v1.0-preview/custom/train",
-					"protocol": "https",
+					"raw": "{{endpoint}}/formrecognizer/v2.0/custom/models",
 					"host": [
 						"{{endpoint}}"
 					],
 					"path": [
 						"formrecognizer",
-						"v1.0-preview",
+						"v2.0",
 						"custom",
-						"train"
+						"models"
 					]
 				}
 			},
@@ -58,7 +57,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9ff17eb9-bc0b-4178-8e57-635a755ce3b4",
+						"id": "b32eea0a-56f5-4a03-bc58-9620fb455336",
 						"exec": [
 							""
 						],
@@ -99,7 +98,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2c3277c8-4189-4736-babe-818f78f0b998",
+						"id": "9c65e035-4919-4f1f-82f5-2f76268323c3",
 						"exec": [
 							""
 						],
@@ -117,28 +116,76 @@
 					}
 				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"type": "file",
-							"src": []
-						}
-					]
+					"mode": "file",
+					"file": {
+						"src": "/C:/ws-2/incoming-data/Invoice22418.pdf"
+					}
 				},
 				"url": {
-					"raw": "https://{{endpoint}}/formrecognizer/v1.0-preview/custom/models/{{modelId}}/analyze",
-					"protocol": "https",
+					"raw": "{{endpoint}}/formrecognizer/v2.0/custom/models/{{modelId}}/analyze",
 					"host": [
 						"{{endpoint}}"
 					],
 					"path": [
 						"formrecognizer",
-						"v1.0-preview",
+						"v2.0",
 						"custom",
 						"models",
 						"{{modelId}}",
 						"analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AnalyzeFormReslts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e31c3173-01bf-4d4a-b624-57450b30c98a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/pdf",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "https://hpinvoicereader.cognitiveservices.azure.com/formrecognizer/v2.0/custom/models/0278ca92-18a7-4701-bdf4-d278235a4df7/analyzeresults/54ad2570-ece9-4092-9f1c-a44ea413cbb1",
+					"protocol": "https",
+					"host": [
+						"hpinvoicereader",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"formrecognizer",
+						"v2.0",
+						"custom",
+						"models",
+						"0278ca92-18a7-4701-bdf4-d278235a4df7",
+						"analyzeresults",
+						"54ad2570-ece9-4092-9f1c-a44ea413cbb1"
 					]
 				}
 			},
@@ -150,7 +197,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5801b22f-6c44-4654-8b2a-5d8014a4a09d",
+						"id": "a806f4e8-57a1-4f71-875a-5c703e92c356",
 						"exec": [
 							""
 						],
@@ -195,7 +242,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5ae0366e-c5dd-4bc1-9cbf-94a2f89434f3",
+						"id": "85c568bd-5bcf-4615-bb72-ec4ebde1d255",
 						"exec": [
 							""
 						],
@@ -229,14 +276,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{endpoint}}/formrecognizer/v1.0-preview/custom/models",
-					"protocol": "https",
+					"raw": "{{endpoint}}/formrecognizer/v2.0/custom/models",
 					"host": [
 						"{{endpoint}}"
 					],
 					"path": [
 						"formrecognizer",
-						"v1.0-preview",
+						"v2.0",
 						"custom",
 						"models"
 					]
@@ -250,7 +296,7 @@
 		"apikey": [
 			{
 				"key": "value",
-				"value": "key",
+				"value": "d4f4d34d785e4d4081911fd33691495a",
 				"type": "string"
 			},
 			{
@@ -264,7 +310,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "84f87997-ce10-4bf8-8a49-2c56fb53ef32",
+				"id": "17408e18-11df-4d83-b5fd-678a1125652e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -274,7 +320,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "6545bd4b-a04c-4bf6-8313-86d98640fef4",
+				"id": "406460a2-4a0a-4afd-8372-55adac3c5521",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -284,16 +330,24 @@
 	],
 	"variable": [
 		{
-			"id": "2d5264da-08ca-406a-8634-0b4d8c1d0141",
+			"id": "c2d2916a-94eb-4b18-b1da-943bfd5fb2d6",
 			"key": "endpoint",
-			"value": "endpoint",
-			"type": "string"
+			"value": "https://hpinvoicereader.cognitiveservices.azure.com/"
 		},
 		{
-			"id": "0a6f48b2-7e2c-47a0-a3a7-5333bbdd9e8a",
+			"id": "70cef391-3598-4f71-9123-d44fe85d4139",
 			"key": "modelId",
-			"value": "modelid",
-			"type": "string"
+			"value": "0278ca92-18a7-4701-bdf4-d278235a4df7"
+		},
+		{
+			"id": "382dae01-b96f-4b93-872d-45c6b3163d26",
+			"key": "endpointstorage",
+			"value": "https://hpinvoicestorage.blob.core.windows.net"
+		},
+		{
+			"id": "3f580826-68b2-4d11-9729-752edde109ab",
+			"key": "Ocp-Apim-Subscription-Key",
+			"value": "d4f4d34d785e4d4081911fd33691495a"
 		}
 	],
 	"protocolProfileBehavior": {}
