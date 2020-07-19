@@ -27,12 +27,12 @@ The only resource we work with in this demonstration is the Form Recognizer serv
 ## What to do
 
 There are three main steps:
+
 1. Upload training data to the storage account
 2. Create Form Recognizer service
 3. Train and Use Form Recognizer service
 
 ### Upload Training Data
-
 
 1. Create a container called `train` in the storage account created in the previous demo.
 
