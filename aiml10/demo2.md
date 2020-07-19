@@ -64,6 +64,7 @@ The table below lists the variables set during this section of the exercise:
 1. Load the [Form Recognizer collection](src/Collections/Form_Recognizer.postman_collection.json) into Postman.
 
 2. Set the `Ocp-Apim-Subscription-Key` authorization header as well as the `endpoint` variable to the Form Recognizer service (these can be found in the portal).
+
 ![Add the Authorization](images/postman-auth-token.png)
 ![Setup the endpoint](images/postman-variable-setup.png)
 
