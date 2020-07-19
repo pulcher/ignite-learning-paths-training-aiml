@@ -42,9 +42,11 @@ There are three main steps:
 
 ### Create Form Recognizer service
 
-[![New Form Recognizer](images/create-new-form-recognizer.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview?WT.mc_id=msignitethetour2019-github-aiml10#request-access "Form Recognizer")
+[![New Form Recognizer](images/create-new-form-recognizer.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview "Form Recognizer")
 
-[![Form Recognizer](images/form_recognizer.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview?WT.mc_id=msignitethetour2019-github-aiml10#request-access "Form Recognizer")
+Make sure to use your own unique name for this service that fits the pattern is currently established.  Pick the correct resource group and location to match your instance.
+
+[![Form Recognizer Information](images/create-new-form-recognizer-2.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview?WT.mc_id=msignitethetour2019-github-aiml10#request-access "Form Recognizer")
 
 ### Train the Form Recognizer Service
 
