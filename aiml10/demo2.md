@@ -87,9 +87,13 @@ pm.environment.set('SASValue', '<SAS>')
 
 ### Use the Form Recognizer Service
 
-1. Open the `AnalyzeForm` request. In the **Body** section click on the `Select Files` button to choose an invoice downloaded previously. After sending the request you should get something similar to:
+1. Open the `AnalyzeForm` request. In the **Body** section click on the `Select Files` button to choose an invoice downloaded previously. 
 
-![Inference Response](images/form_inference.png "Inference Response")
+![Analyze Form](images/postman-analyze-form.png)
+
+2. To get the results of the analysis, open the headers of the result and copy the **Operation-Location**.  Open up the **AnalyzeFormResults** and paste that location url into the top URL and hit send.  This will return a status and any results that have been found on the model.
+
+![Analyze Form Results](images/postman-analyze-form-results.png)
 
 # Next Demo
 Learn how to create custom Invoice Reader Skill with Azure Functions by continuing on to [Demo 3 - Creating a Custom Invoice Reader Skill](demo3.md)
