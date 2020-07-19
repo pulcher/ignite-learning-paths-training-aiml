@@ -61,6 +61,7 @@ Create a search service:
 
 [![Azure Search](images/azure_search.png)](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal?WT.mc_id=msignitethetour2019-github-aiml10 "Azure Search")
 
+Suggested name is **ttinvoiceintelligence**
 
 Use Search Service:
 
