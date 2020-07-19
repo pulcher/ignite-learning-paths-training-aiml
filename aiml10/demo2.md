@@ -73,15 +73,17 @@ The table below lists the variables set during this section of the exercise:
 ```javascript
 pm.environment.set('storageAccount', '<YOUR STORAGE ACCOUNT>')
 pm.environment.set('container', 'train')
+pm.environment.set('query', '<GET SHARED ACCESS SIGNATURE>')
 pm.environment.set('SASValue', '<SAS>')
 ```
 
-4. Hit Send on the Request. Your response should look something like this:
+4. Hit Send on the Request.  You will not get a response in the.  As long as you get a 201 created as a status, this request worked.  May not have been successful, but you can check in the next step.
 
-![Training Response](images/form_training.png "Training Response")
+5. Open the **Get Models** request in  the collection.  Click the **Send** button and you should receive something that looks like:
 
-5. Set the `modelId` variable for the collection to the returned `modelId` indicated above.
+[Results of get models](images/postman-get-models.png)
 
+6. Set the `modelId` variable for the collection to the returned `modelId` indicated above.  As long as the status is `ready`, then you should have a valid model.  If something goes wrong, you will need to investigate.
 
 ### Use the Form Recognizer Service
 
