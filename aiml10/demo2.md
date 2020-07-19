@@ -46,7 +46,7 @@ There are three main steps:
 
 Make sure to use your own unique name for this service that fits the pattern is currently established.  Pick the correct resource group and location to match your instance.
 
-[![Form Recognizer Information](images/create-new-form-recognizer-2.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview?WT.mc_id=msignitethetour2019-github-aiml10#request-access "Form Recognizer")
+[![Form Recognizer Information](images/create-new-form-recognizer-2.png)](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview "Form Recognizer")
 
 ### Train the Form Recognizer Service
 
@@ -58,11 +58,14 @@ The table below lists the variables set during this section of the exercise:
 | -------------------------- | ------------------------------- | ------------------------- |
 | `Ocp-Apim-Subscription-Key`       | Authorization         | Key for getting access to Form Recognizer service  |
 | `endpoint`       | Variable         | Specifies the Form Recognizer endpoint  |
+| `endpointstorage`       | Variable         | Specifies the storage location endpoint  |
 | `modelId`       | Variable         | Current Form Recognizer model (this is set in step 5)  |
 
 1. Load the [Form Recognizer collection](src/Collections/Form_Recognizer.postman_collection.json) into Postman.
 
 2. Set the `Ocp-Apim-Subscription-Key` authorization header as well as the `endpoint` variable to the Form Recognizer service (these can be found in the portal).
+![Add the Authorization](images/postman-auth-token.png)
+![Setup the endpoint](images/postman-variable-setup.png)
 
 3. Open the `TrainModel` Request and change the Pre-request script to set the `storageAccount` variable to your storage account (in the video the variable is `ttinvoicestorage`) and the `SASValue` to the appropriate Secure Access Signature to the `train` container. To learn how to get a Secure Access Signature, refer to our [brief explanation](sas.md).
 
