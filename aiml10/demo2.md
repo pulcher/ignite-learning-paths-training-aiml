@@ -1,7 +1,8 @@
 ## Demo 2 - Using Form Recognizer
 
 [![Demo 2](images/demo2.png)](https://globaleventcdn.blob.core.windows.net/assets/aiml/aiml10/videos/Demo2.mp4 "Demo 2")
-__This video was made using the pre-release api.  It still shows the steps needed, but a few things have changed.  The text below has the correct updates__
+
+### The video was made using the pre-release api.  It still shows the steps needed, but a few things have changed.  The text below has the correct updates
 
 ## Summary
 In this exercise we learn how to use the Form Recognizer service. It is assumed that a storage account has been created (as described in the [first demo](demo1.md).)
