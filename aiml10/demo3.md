@@ -86,7 +86,7 @@ az functionapp create --resource-group {YOUR_RG} --consumption-plan-location {LO
 ```
 Publish Function
 ```
-func azure functionapp publish {FUNCTION_NAME} --build remote
+func azure functionapp publish {FUNCTION_NAME} --build remote --python
 ```
 
 2. Use Visual Studio Code to sync the local settings to the Azure Function by selecting the Azure button, navigating to the newly created function, right clicking on `Application Settings` and selecting `Upload Local Settings` (NOTE: Do not overwrite the existing variables).
