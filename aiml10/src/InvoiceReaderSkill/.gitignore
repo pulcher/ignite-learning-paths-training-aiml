@@ -43,3 +43,5 @@ __pycache__/
 *$py.class
 InvoiceReaderSkill.zip
 .vscode
+.history
+.venv
