@@ -1,0 +1,10 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "FUNCTIONS_WORKER_RUNTIME": "python",
+      "AzureWebJobsStorage": "{AzureWebJobsStorage}",
+      "FormsRecognizerEndpoint": "<https://hpinvoicereader.cognitiveservices.azure.com",
+      "FormsRecognizerKey": "<YOUR_FORMS_KEY>",
+      "ModelId": "<YOUR_TRAINED_MODEL_ID>"
+    }
+  }
