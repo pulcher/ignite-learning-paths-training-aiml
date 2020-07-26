@@ -41,7 +41,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
             logging.info(f'retrieve location: {retLocation}')
 
-            time.sleep(10)
+            time.sleep(20)
                 
             maxCount = 5
             currentCount = 0
