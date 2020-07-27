@@ -5,6 +5,8 @@
 
 # VS Code
 .vscode/
+.history/
+.venv/
 
 # User-specific files
 *.suo

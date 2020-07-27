@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c9ed166-4848-4ea7-a5bd-ee3321bae34c",
+		"_postman_id": "989534bf-6b71-4314-899b-9017bfc03fd8",
 		"name": "Reader Skill",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bf77fd38-0940-494c-bff6-3b9854690b6c",
+						"id": "ef733357-ff84-473c-ab26-49af48f69058",
 						"exec": [
 							"pm.environment.set('storageAccount', 'storage')",
 							"pm.environment.set('container', 'container')",
@@ -56,11 +56,11 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cb80ec31-53bb-46bc-9abc-c1da8f7e0c9b",
+						"id": "75e57f16-d0e7-496d-b774-9c4aba6670c8",
 						"exec": [
-							"pm.environment.set('storageAccount', 'storage')",
-							"pm.environment.set('container', 'container')",
-							"pm.environment.set('SASValue', 'key')"
+							"pm.environment.set('storageAccount', '<storage account')",
+							"pm.environment.set('container', 'test')",
+							"pm.environment.set('SASValue', '<SAS value to access test blob>')"
 						],
 						"type": "text/javascript"
 					}
@@ -81,12 +81,9 @@
 					"raw": "{\r\n\t\"values\": \r\n\t[\r\n\t\t{\r\n\t\t\t\"recordId\": \"Id27\",\r\n\t\t\t\"data\": { \r\n\t\t\t\t\"formUrl\":  \"https://{{storageAccount}}.blob.core.windows.net/{{container}}/Invoice54174.pdf\",\r\n\t\t\t\t\"formSasToken\":  \"{{SASValue}}\"\r\n\t\t\t}\r\n\t\t}\r\n\t]\r\n}"
 				},
 				"url": {
-					"raw": "https://<YOUR_ENDPOINT>.azurewebsites.net/api/AnalyzeInvoice",
-					"protocol": "https",
+					"raw": "{{endpoint}}/api/AnalyzeInvoice",
 					"host": [
-						"<YOUR_ENDPOINT>",
-						"azurewebsites",
-						"net"
+						"{{endpoint}}"
 					],
 					"path": [
 						"api",
@@ -95,6 +92,55 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "<api key>",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Ocp-Apim-Subscription-Key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1940294a-9a30-42f2-82b6-202ccb0b409c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ab69e137-9eac-4ad9-bb7c-e4aa65691472",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c09deb23-f119-4c5d-bf6a-f6a359cc9481",
+			"key": "modelId",
+			"value": "<model id"
+		},
+		{
+			"id": "dbd94cad-783e-4239-b4dd-4c85da780968",
+			"key": "endpoint",
+			"value": "<api endpoint>"
 		}
 	],
 	"protocolProfileBehavior": {}
