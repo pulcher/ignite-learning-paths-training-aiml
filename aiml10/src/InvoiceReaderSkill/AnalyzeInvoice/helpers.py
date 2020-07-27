@@ -1,4 +1,5 @@
 import json
+import logging
 from dateutil import parser
 
 personMap = {
@@ -46,25 +47,40 @@ decimalMap = ["subTotal", "totalDiscount", "taxRate", "totalTax", "total", "pric
 dateMap = ["orderDate"]
 
 def convert(data):
-    # get original data in a more normalized form 
-    keyPairs = { items["key"][0]["text"]: items["value"][0]["text"] if len(items["value"]) > 0 else "" 
-                 for items in data["pages"][0]["keyValuePairs"] }
+    pageData = data['pageResults'][0]
+    logging.info(f'*****Page results: {pageData}')
 
-    tableItems = { col["header"][0]["text"]: [entry[0]["text"] for entry in col["entries"]]
-                  for col in data["pages"][0]["tables"][0]["columns"] }
+    # for key, value, confidence in pageData['keyValuePairs'][0]:
+        # logging.info(f'key: {key} value: {value} confidence: {confidence}')
+
+    # for items in pageData['keyValuePairs'][0]:
+    #     logging.info(f'items (key) (value.text): {items["key"][0]["text"]} {items["value"][0]["text"]}')
+
+    logging.info('=================================================================================================================')
+    logging.info(f'*** keyValuePairs: {pageData["keyValuePairs"][0]}')
+
+    logging.info('=================================================================================================================')
+    logging.info(f'*** table/cells: {pageData["tables"][1]["cells"]}')
+
+    # get original data in a more normalized form 
+    keyPairs = { items["key"]["text"]: items["value"]["text"] if len(items["value"]) > 0 else "" 
+                 for items in pageData["keyValuePairs"] }
+
+    # tableItems = { col["cells"]["text"]: [entry[0]["text"] for entry in col["cells"]]
+    #               for col in data["pageResults"][0]["tables"][1]["cells"] }
 
     # convert to invoice structure
     o = { v: translate(v, keyPairs[k]) for k, v in invoiceMap.items() }
     o['company'] = { v: translate(v, keyPairs[k]) for k, v in companyMap.items() }
     o['person'] = { v: translate(v, keyPairs[k]) for k, v in personMap.items() }
 
-    lineItemCount = min([len(v) for k, v in tableItems.items()])
-    lineItems = [{} for i in range(lineItemCount)]
-    for key in tableItems.keys():
-        for i in range(lineItemCount):
-            lineItems[i][lineItemMap[key]] = translate(lineItemMap[key], tableItems[key][i])
+    # lineItemCount = min([len(v) for k, v in tableItems.items()])
+    # lineItems = [{} for i in range(lineItemCount)]
+    # for key in tableItems.keys():
+    #     for i in range(lineItemCount):
+    #         lineItems[i][lineItemMap[key]] = translate(lineItemMap[key], tableItems[key][i])
 
-    o['lineItems'] = lineItems
+    # o['lineItems'] = lineItems
     
     return o
 

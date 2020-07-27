@@ -5,11 +5,13 @@ import logging
 import requests
 import azure.functions as func
 from . import helpers
+import time
 
 formsRecognizerKey = os.environ["FormsRecognizerKey"]
 formsRecognizerEndpoint = os.environ["FormsRecognizerEndpoint"]
 modelId = os.environ["ModelId"]
-uri = f"https://{formsRecognizerEndpoint}/formrecognizer/v1.0-preview/custom/models/{modelId}/analyze"
+# uri = f"https://{formsRecognizerEndpoint}/formrecognizer/v1.0-preview/custom/models/{modelId}/analyze"
+uri = f"https://{formsRecognizerEndpoint}/formrecognizer/v2.0/custom/models/{modelId}/analyze"
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Invoice Skill Request: Python HTTP trigger function processed a request.')
@@ -23,6 +25,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     for record in body["values"]:
         try:
             # get pdf form
+            logging.info(f'requesting get url: {record["data"]["formUrl"]}{record["data"]["formSasToken"]}')
             pdf = requests.get(f'{record["data"]["formUrl"]}{record["data"]["formSasToken"]}')
 
             # make Form Recognizer API request
@@ -31,8 +34,23 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 'Ocp-Apim-Subscription-Key': formsRecognizerKey,
                 'Content-Type': 'application/pdf' })
 
-            cog_response = response.json()
+            # logging.info(f'response full: {response}')
+            headers = response.headers
+            retLocation = headers['Operation-Location']
+            logging.info(f'response headers: {headers}')
+
+            logging.info(f'retrieve location: {retLocation}')
+
+            time.sleep(20)
+                
+            maxCount = 5
+            currentCount = 0
+
+            retResponse = requests.get(retLocation, headers = { 'Ocp-Apim-Subscription-Key': formsRecognizerKey})
+
+            cog_response = retResponse.json()
             logging.info(f'CogSvc Form Response: {cog_response}')
+            logging.info(f'CogSvc status: {cog_response["status"]}')
 
             # Error from Cognitive Services?
             if 'error' in cog_response:
@@ -52,11 +70,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     }
                 })
             else:
+                logging.info('stuff is here...')
+                # logging.info(f'status = {cog_response['status']}')
                 records['values'].append({
                     'recordId': record["recordId"],
                     'data': {
                         'formUrl': record["data"]["formUrl"],
-                        'invoice': helpers.convert(cog_response),
+                        'invoice': helpers.convert(cog_response['analyzeResult']),
                         'error': {}
                     }
                 })
