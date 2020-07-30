@@ -1,8 +1,19 @@
 Software Requirements:
+https://github.com/pulcher/ignite-learning-paths-training-aiml/blob/workshop_updates/aiml10/Required-Installs.txt
+
+
 Visual studio code: https://code.visualstudio.com/Download
+
 Postman: https://www.postman.com/downloads/
-Python: https://www.postman.com/downloads/  3.6 or greater.....
+
 Azure CLI: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
-NodeJS: https://nodejs.org/en/download/
-Azure functions core tools: https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash latest version
+
 Azure storage explorer: https://azure.microsoft.com/en-us/features/storage-explorer/
+
+Python: https://www.python.org/downloads/  3.6 or greater.....
+
+NodeJS: https://nodejs.org/en/download/
+
+Azure functions core tools: 
+    https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash latest version
+
